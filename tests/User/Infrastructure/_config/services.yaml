@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    user.repository.adapter.default:
+        class: App\User\Infrastructure\UserDoctrineRepositoryAdapter
+
+    App\User\Domain\UserRepositoryInterface: '@user.repository.adapter.default'
+
+    App\User\Domain\UserApplicationService:
+        arguments:
+            $repository: '@user.repository.adapter.default'
+
