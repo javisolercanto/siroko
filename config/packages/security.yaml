@@ -1,0 +1,27 @@
+security:
+    providers:
+        user_jwt:
+            lexik_jwt:
+                class: App\Auth\Infrastructure\AuthUser
+
+
+    firewalls:
+        login:
+            pattern: ^/api/login
+            stateless: true
+            custom_authenticators:
+                - App\Auth\Infrastructure\JWTUserAuthenticator
+
+        main:
+            stateless: true
+            jwt: ~
+
+        api:
+            pattern: ^/api
+            stateless: true
+            jwt: ~
+
+    access_control:
+        - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/doc, roles: PUBLIC_ACCESS }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }

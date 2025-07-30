@@ -1,0 +1,33 @@
+parameters:
+
+imports:
+    - { resource: '../src/*/Infrastructure/_config/services.yaml' }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    messenger.transport.serializer.custom:
+        class: Symfony\Component\Messenger\Transport\Serialization\Serializer
+        arguments:
+            $serializer: '@serializer'
+            $format: 'json'
+
+    App\:
+        resource: '../src/'
+
+    App\_Shared\Message\Query\Domain\Query\QueryBus: '@App\_Shared\Message\Query\Infrastructure\MessengerQueryBus'
+    App\_Shared\Message\Command\Domain\Command\CommandBus: '@App\_Shared\Message\Command\Infrastructure\MessengerCommandBus'
+
+when@test:
+    when@test:
+    services:
+        App\Tests\TestEntityManagerDecorator:
+            decorates: doctrine.orm.entity_manager
+            arguments: ['@App\Tests\TestEntityManagerDecorator.inner']
+            autoconfigure: false
+            autowire: false
+
+        Doctrine\ORM\EntityManagerInterface: '@App\Tests\TestEntityManagerDecorator'
+        
