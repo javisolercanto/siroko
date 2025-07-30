@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    order.repository.adapter.default:
+        class: App\Order\Infrastructure\OrderDoctrineRepositoryAdapter
+
+    App\Order\Domain\OrderRepositoryInterface: '@order.repository.adapter.default'
+
+    App\Order\Domain\OrderApplicationService:
+        arguments:
+            $repository: '@order.repository.adapter.default'
+

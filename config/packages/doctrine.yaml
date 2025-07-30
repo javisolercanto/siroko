@@ -40,6 +40,12 @@ doctrine:
                 dir: '%kernel.project_dir%/src/CartLine/Infrastructure/Persistence'
                 prefix: 'App\CartLine\Infrastructure\Persistence'
                 alias: CartLine
+            Order:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Order/Infrastructure/Persistence'
+                prefix: 'App\Order\Infrastructure\Persistence'
+                alias: Order
 
 when@test:
     doctrine:
