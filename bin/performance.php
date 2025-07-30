@@ -256,7 +256,10 @@ HTML;
 
 function formatBytes(float $bytes): string
 {
-    if ($bytes === 0) return '0 B';
+    if (!is_finite($bytes) || $bytes <= 0) {
+        return '0 B';
+    }
+
     $units = ['B', 'KB', 'MB', 'GB'];
     $factor = floor(log($bytes, 1024));
     return round($bytes / (1024 ** $factor), 2) . ' ' . $units[$factor];
