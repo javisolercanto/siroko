@@ -15,6 +15,19 @@ doctrine:
         auto_mapping: true
         controller_resolver:
             auto_mapping: false
+        mappings:
+            User:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/User/Infrastructure/Persistence'
+                prefix: 'App\User\Infrastructure\Persistence'
+                alias: User
+            Product:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Product/Infrastructure/Persistence'
+                prefix: 'App\Product\Infrastructure\Persistence'
+                alias: Product
 
 when@test:
     doctrine:

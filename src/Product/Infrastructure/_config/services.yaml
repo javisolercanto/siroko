@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    product.repository.adapter.default:
+        class: App\Product\Infrastructure\ProductDoctrineRepositoryAdapter
+
+    App\Product\Domain\ProductRepositoryInterface: '@product.repository.adapter.default'
+
+    App\Product\Domain\ProductApplicationService:
+        arguments:
+            $repository: '@product.repository.adapter.default'
+
