@@ -28,6 +28,18 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Product/Infrastructure/Persistence'
                 prefix: 'App\Product\Infrastructure\Persistence'
                 alias: Product
+            Cart:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Cart/Infrastructure/Persistence'
+                prefix: 'App\Cart\Infrastructure\Persistence'
+                alias: Cart
+            CartLine:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/CartLine/Infrastructure/Persistence'
+                prefix: 'App\CartLine\Infrastructure\Persistence'
+                alias: CartLine
 
 when@test:
     doctrine:
