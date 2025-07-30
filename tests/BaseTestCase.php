@@ -33,7 +33,6 @@ abstract class BaseTestCase extends KernelTestCase
             $this->connection->beginTransaction();
         }
 
-        // Borrar el archivo solo una vez
         if (!self::$metricsFileCleared) {
             $this->clearMetricsFile();
             self::$metricsFileCleared = true;
