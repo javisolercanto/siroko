@@ -1,0 +1,12 @@
+framework:
+    messenger:
+        default_bus: messenger.bus.default
+
+        serializer:
+            default_serializer: messenger.transport.serializer.custom
+
+        transports:
+            sync: 'sync://'
+
+        routing:
+            '*': sync

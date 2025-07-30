@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS symfony;
+GRANT ALL PRIVILEGES ON symfony.* TO 'symfony'@'%';
+
+CREATE DATABASE IF NOT EXISTS symfony_test;
+GRANT ALL PRIVILEGES ON symfony_test.* TO 'symfony'@'%';
+
+FLUSH PRIVILEGES;

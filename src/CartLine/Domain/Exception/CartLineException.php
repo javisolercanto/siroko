@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\CartLine\Domain\Exception;
+
+use App\_Shared\Message\AggregateRoot\Exception\BaseException;
+
+abstract class CartLineException extends BaseException
+{
+    public function __construct(string $message)
+    {
+        parent::__construct(message: $message);
+    }
+}
