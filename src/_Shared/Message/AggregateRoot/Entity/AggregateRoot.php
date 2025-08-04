@@ -49,6 +49,11 @@ abstract class AggregateRoot
         $this->domainEvents[] = $event;
     }
 
+    /**
+     * Get event list and execute a dispatch for each of them
+     * 
+     * @param DomainEventBus $bus The configured bus to send messages as domain events
+     */
     final public function dispatchEvents(DomainEventBus $bus): void
     {
         foreach ($this->pullEvents() as $event) {
