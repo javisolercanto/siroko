@@ -8,6 +8,11 @@ use ReflectionObject;
 
 abstract class BaseOrm
 {
+    /**
+     * Overwrites the properties of the object while maintaining the ORM reference of the original object
+     * 
+     * @param self $target The orm object to get values
+     */
     public function merge(self $target): void
     {
         $reflection = new ReflectionObject($target);

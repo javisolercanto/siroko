@@ -32,12 +32,16 @@ abstract class RepositoryAdapter
     }
 
     /**
+     * Transform the Orm object into an Aggregate object
+     * 
      * @param TEntity $object
      * @return object
      */
     abstract protected function toDomain(object $object): object;
 
     /**
+     * Tranform the aggregate into an Orm object with the expected properties
+     * 
      * @param object $object
      * @return TEntity
      */

@@ -27,6 +27,8 @@ abstract class ApiController extends AbstractController
     /**
      * @template T of object
      * 
+     * Transform the request object received using a class reference to map properties
+     * 
      * @param Request $request
      *
      * @param class-string<T> $document
@@ -88,6 +90,9 @@ abstract class ApiController extends AbstractController
     }
 
     /**
+     * @param QueryBus $bus
+     * @param Query $query
+     * 
      * @return array{?ApplicationResponse, ?\Throwable}
      */
     protected function safeAsk(QueryBus $bus, Query $query): array
